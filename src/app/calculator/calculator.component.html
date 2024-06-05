@@ -1,0 +1,19 @@
+<table class="calculator-table">
+    <tr>
+        <td colspan="4" class="calculator-table-value">{{ calculatedValue }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" class="calculator-table-operators" (click)="handleClear()">Clear</td>
+        <td colspan="2" class="calculator-table-operators" (click)="handleBackspace()">Backspace</td>
+    </tr>
+    <tr *ngFor="let row of buttonValues">
+        <td
+            [ngStyle]="{'background-color': determineBackgroundColor(buttonValue)}"
+            [class]="determineButtonClass(buttonValue)"
+            *ngFor="let buttonValue of row"
+            (click)="handleClick(buttonValue)"
+        >
+            {{ buttonValue }}
+        </td>
+    </tr>
+</table>
